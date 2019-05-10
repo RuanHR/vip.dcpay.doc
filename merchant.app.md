@@ -1,5 +1,5 @@
 # Table of Contents
- 
+
 * [更新记录](#更新记录)
 * [全局约定](#全局约定)
   * [通用返回结构](#通用返回结构)
@@ -915,9 +915,10 @@
 /merchant/grab/past/paging GET
 ### 参数
 > 继承自[PaginationParam][PaginationParam]
+
 |字段 | 类型 | 是否必传 | 说明 | 跳转 |
 |----|----|----|----|----|
-|state| int|否|订单状态,指定则查询时限定该条件|[DealState][DealState]|
+|state|  int | 否 | 订单状态,指定则查询时限定该条件|[DealState][DealState] |
 ### 返回值
 > data数据类型： [Page][Page]<[OrderVo][OrderVo]>
 #### 样例
