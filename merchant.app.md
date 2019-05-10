@@ -309,7 +309,7 @@
 ```json
 {
 	"code":0,
-	"data":null
+	"data":null,
 	"message":"成功",
 	"success":true
 }
@@ -336,7 +336,7 @@
 ```json
 {
 	"code":0,
-	"data":null
+	"data":null,
 	"message":"成功",
 	"success":true
 }
