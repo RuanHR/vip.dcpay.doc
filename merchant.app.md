@@ -97,14 +97,20 @@
     * [参数](#参数-17)
     * [返回值](#返回值-16)
       * [样例](#样例-17)
+  * [4_8_重新开启抢单并且设置本次收款信息](#4_8_重新开启抢单并且设置本次收款信息)
+    * [接口路径&请求方式](#接口路径请求方式-17)
+    * [参数](#参数-18)
+    * [返回值](#返回值-17)
+      * [样例](#样例-18)
 
 
 # 更新记录
 
-| 版本号  | 作者 | 日期      | 说明              |
-| ------- | ---- | --------- | ----------------- |
-| v.2.0.0 | D    | 2019.5.9  | 初始版本          |
-| v.2.0.1 | D    | 2019.5.10 | 修改。3_5接口路径 |
+| 版本号  | 作者 | 日期       | 说明                                                         |
+| ------- | ---- | ---------- | ------------------------------------------------------------ |
+| v.2.0.0 | D    | 2019.05.09 | 初始版本                                                     |
+| v.2.0.1 | D    | 2019.05.10 | 修改。3_5接口路径                                            |
+| v.2.0.2 | D    | 2019.05.11 | 1.OrderVo删除owner字段；2.PaymentVo增加remark字段；3.修改GrabSwitch类结构；4.修改接口【4_2】入参；5.增加接口【4_8】 |
 
 
 
@@ -253,6 +259,7 @@
 | remark | string | 否 | 备注\留言 ||
 | belong    | string | 否       | 支付信息主归属结构 ||
 | subBelong | string | 否       | 支付信息从归属结构 ||
+| remark | string | 否 | 备注信息 ||
 | vfcode | string | 是 | 手机短信验证码 ||
 
 ### 返回值
@@ -280,7 +287,8 @@
 			"stamp":"lkmvnhgiyrnqkjfndkjhfakadsnfa"
 		},
 		"state":1,
-		"way":"AliPay"
+		"way":"AliPay",
+        "remark":"收款专用"
 	},
 	"message":"成功",
 	"success":true
@@ -375,10 +383,6 @@
 				"symbol":"Y"
 			}
 		},
-		"owner":{
-			"account":"188888@dc.com",
-			"id":10000
-		},
 		"payInfo":{
 			"account":"622202048888909",
 			"belong":{
@@ -457,10 +461,6 @@
 				"symbol":"Y"
 			}
 		},
-		"owner":{
-			"account":"188888@dc.com",
-			"id":10000
-		},
 		"property":{
 			"style":2,
 			"type":2
@@ -523,10 +523,6 @@
 						"precision":2,
 						"symbol":"Y"
 					}
-				},
-				"owner":{
-					"account":"188888@dc.com",
-					"id":10000
 				},
 				"payInfo":{
 					"account":"622202048888909",
@@ -609,10 +605,6 @@
                 "precision": 2,
                 "symbol": "Y"
             }
-        },
-        "owner": {
-            "account": "188888@dc.com",
-            "id": 10000
         },
         "payInfo": {
             "account": "622202048888909",
@@ -716,9 +708,14 @@
 {
 	"code":0,
 	"data":{
-		"deposit":1,
+		"deposit":{
+        	"player":1,
+            "merchant":1
+        },
 		"main":1,
-		"withdraw":0
+        "withdraw":{
+            "merchant":1
+        }
 	},
     "message":"成功",
 	"success":true
@@ -728,12 +725,16 @@
 ## 4_2_修改开关状态
 ### 接口路径&请求方式
 /merchant/grab/switch/turn POST
+
+> 仅修改非null的入参配置
+
 ### 参数
 |字段 | 类型 | 是否必传 | 说明 | 跳转 |
 |----|----|----|----|----|
-|main| int|是|主开关状态|[SwitchState][SwitchState]|
-|deposit| int |是|充值开关状态|[SwitchState][SwitchState]|
-|withdraw| int |是|提现开关状态|[SwitchState][SwitchState]|
+|main| int|否|主开关状态|[SwitchState][SwitchState]|
+|playerDeposit| int |否|玩家充值开关状态|[SwitchState][SwitchState]|
+|playerWithdraw| int |否|玩家提现开关状态|[SwitchState][SwitchState]|
+|merchantWithdraw| int |否|商家提现开关状态|[SwitchState][SwitchState]|
 ### 返回值
 > data类型[GrabSwitch][GrabSwitch]，修改后的开关状态
 #### 样例
@@ -741,9 +742,14 @@
 {
 	"code":0,
 	"data":{
-		"deposit":1,
+		"deposit":{
+        	"player":1,
+            "merchant":1
+        },
 		"main":1,
-		"withdraw":1
+        "withdraw":{
+            "merchant":1
+        }
 	},
     "message":"成功",
 	"success":true
@@ -777,10 +783,6 @@
 				"symbol":"Y"
 			}
 		},
-		"owner":{
-			"account":"188888@dc.com",
-			"id":10000
-		},
 		"property":{
 			"style":1,
 			"type":1
@@ -802,7 +804,8 @@
 				"stamp":"wefdsdcvfasdfdtfsdfdssefg"
 			},
 			"state":1,
-			"way":"AliPay"
+			"way":"AliPay",
+            "remark":"张小三的支付宝"
 		},
 		"state":{
 			"deal":1,
@@ -885,10 +888,6 @@
 					"symbol":"Y"
 				}
 			},
-			"owner":{
-				"account":"188888@dc.com",
-				"id":10000
-			},
 			"property":{
 				"style":1,
 				"type":1
@@ -910,7 +909,8 @@
 					"stamp":"wefdsdcvfasdfdtfsdfdssefg"
 				},
 				"state":1,
-				"way":"AliPay"
+				"way":"AliPay",
+          	    "remark":"张小三的支付宝"
 			},
 			"state":{
 				"deal":2,
@@ -962,10 +962,6 @@
 						"symbol":"Y"
 					}
 				},
-				"owner":{
-					"account":"188888@dc.com",
-					"id":10000
-				},
 				"property":{
 					"style":1,
 					"type":1
@@ -987,7 +983,8 @@
 						"stamp":"wefdsdcvfasdfdtfsdfdssefg"
 					},
 					"state":1,
-					"way":"AliPay"
+					"way":"AliPay",
+                    "remark":"张小三的支付宝"
 				},
 				"state":{
 					"deal":2,
@@ -1013,11 +1010,29 @@
 }
 ```
 
+## 4_8_重新开启抢单并且设置本次收款信息
 
+### 接口路径&请求方式
 
+/merchant/grab/restart POST
 
+### 参数
 
+| 字段          | 类型  | 是否必填 | 说明                   | 跳转 |
+| ------------- | ----- | -------- | ---------------------- | ---- |
+| paymentIdList | array | 是       | 开启时选定的支付信息ID |      |
 
+### 返回值
+> data无意义
+#### 样例
+```json
+{
+	"code":0,
+	"data":null,
+	"message":"成功",
+	"success":true
+}
+```
 
 
 

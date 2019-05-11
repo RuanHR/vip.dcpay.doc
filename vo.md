@@ -111,11 +111,22 @@
 
 > 抢单开关配置
 
-| 字段     | 类型 | 说明     | 跳转                       |
-| -------- | ---- | -------- | -------------------------- |
-| main     | int  | 主开关   | [SwitchState][SwitchState] |
-| deposit  | int  | 充值开关 | [SwitchState][SwitchState] |
-| withdraw | int  | 提现开关 | [SwitchState][SwitchState] |
+| 字段     | 类型 | 说明     | 跳转                                       |
+| -------- | ---- | -------- | ------------------------------------------ |
+| main     | int  | 主开关   | [SwitchState][SwitchState]                 |
+| deposit  | int  | 充值开关 | [GrabSwitchOrderType][GrabSwitchOrderType] |
+| withdraw | int  | 提现开关 | [GrabSwitchOrderType][GrabSwitchOrderType] |
+
+## GrabSwitchOrderType
+
+[GrabSwitchOrderType]:#GrabSwitchOrderType
+
+> 抢单开关配置内部类,指定不同类型订单的开关状态
+
+| 字段     | 类型 | 说明                   | 跳转                       |
+| -------- | ---- | ---------------------- | -------------------------- |
+| player   | int  | 接收来自玩家的订单开关 | [SwitchState][SwitchState] |
+| merchant | int  | 接收来自商家的订单开关 | [SwitchState][SwitchState] |
 
 # 配置业务枚举
 
@@ -142,6 +153,7 @@
 | qr         | object | 二维码信息       | [QrCode][QrCode]             |
 | belong     | object | 支付信息所属机构 | [Belong][Belong]             |
 | state      | int    | 支付信息状态     | [PaymentState][PaymentState] |
+| ramark     | string | 备注信息         |                              |
 
 ## PaymentWay
 
@@ -213,7 +225,6 @@
 
 | 字段       | 类型   | 说明                                       | 跳转                               |
 | ---------- | ------ | ------------------------------------------ | ---------------------------------- |
-| owner      | object | 订单的拥有人信息                           | [MerchantVo][MerchantVo]           |
 | property   | object | 订单的基础属性                             | [OrderProperty][OrderProperty]     |
 | state      | object | 订单的状态                                 | [OrderState][OrderState]           |
 | amount     | object | 订单的金额信息                             | [OrderAmount][OrderAmount]         |
