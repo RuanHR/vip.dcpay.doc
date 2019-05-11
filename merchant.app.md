@@ -102,6 +102,41 @@
     * [参数](#参数-18)
     * [返回值](#返回值-17)
       * [样例](#样例-18)
+* [商家辅助接口](#商家辅助接口)
+  * [5_1_获取商家个人信息](#5_1_获取商家个人信息)
+    * [接口路径&请求方式](#接口路径请求方式-18)
+    * [参数](#参数-19)
+    * [返回值](#返回值-18)
+      * [样例](#样例-19)
+  * [5_2_商家发送验证码](#5_2_商家发送验证码)
+    * [接口路径&请求方式](#接口路径请求方式-19)
+    * [参数](#参数-20)
+    * [返回值](#返回值-19)
+      * [样例](#样例-20)
+  * [5_3_修改密码](#5_3_修改密码)
+    * [接口路径&请求方式](#接口路径请求方式-20)
+    * [参数](#参数-21)
+    * [返回值](#返回值-20)
+      * [样例](#样例-21)
+* [其他辅助接口](#其他辅助接口)
+  * [6_1_未登录发送验证码](#6_1_未登录发送验证码)
+    * [接口路径&请求方式](#接口路径请求方式-21)
+    * [参数](#参数-22)
+      * [6_1_params_account说明](#6_1_params_account说明)
+    * [返回值](#返回值-21)
+      * [样例](#样例-22)
+  * [6_2_找回密码](#6_2_找回密码)
+    * [接口路径&请求方式](#接口路径请求方式-22)
+    * [参数](#参数-23)
+      * [6_2_params_account说明](#6_2_params_account说明)
+    * [返回值](#返回值-22)
+      * [样例](#样例-23)
+  * [6_3_登录](#6_3_登录)
+    * [接口路径&请求方式](#接口路径请求方式-23)
+    * [参数](#参数-24)
+      * [6_3_params_account说明](#6_3_params_account说明)
+    * [返回值](#返回值-23)
+      * [样例](#样例-24)
 
 
 # 更新记录
@@ -111,6 +146,7 @@
 | v.2.0.0 | D    | 2019.05.09 | 初始版本                                                     |
 | v.2.0.1 | D    | 2019.05.10 | 修改。3_5接口路径                                            |
 | v.2.0.2 | D    | 2019.05.11 | 1.OrderVo删除owner字段；2.PaymentVo增加remark字段；3.修改GrabSwitch类结构；4.修改接口【4_2】入参；5.增加接口【4_8】 |
+| v.2.0.3 | D    | 2019.05.12 | 增加商家和业务辅助相关接口                                   |
 
 
 
@@ -1036,6 +1072,229 @@
 
 
 
+# 商家辅助接口
+
+## 5_1_获取商家个人信息
+
+### 接口路径&请求方式
+
+/merchant/personal/info
+
+### 参数
+
+无参数
+
+### 返回值
+
+> data类型[MerchantVo][MerchantVo]
+
+#### 样例
+
+```json
+{
+	"code":0,
+	"data":{
+		"account":"18888888888@dcpay.vip",
+		"auth":{
+			"phone":{
+				"explain":null,
+				"state":1,
+				"value":{
+					"area":"86",
+					"tel":"18888888888"
+				}
+			}
+		},
+		"id":100,
+		"uid":"809889"
+	},
+	"message":"成功",
+	"success":true
+}
+
+```
+
+## 5_2_商家发送验证码
+
+### 接口路径&请求方式
+
+/merchant/authcode/send POST
+
+### 参数
+
+| 字段         | 类型 | 是否必填 | 说明     | 跳转                         |
+| ------------ | ---- | -------- | -------- | ---------------------------- |
+| businessCode | int  | 是       | 业务编号 | [BusinessCode][BusinessCode] |
+
+### 返回值
+
+> data无意义
+
+#### 样例
+
+```json
+{
+	"code":0,
+	"data":null,
+	"message":"成功",
+	"success":true
+}
+```
+
+## 5_3_修改密码
+
+### 接口路径&请求方式
+
+/merchant/passwd/reset POST
+
+### 参数
+
+| 字段      | 类型   | 是否必填 | 说明           | 跳转 |
+| --------- | ------ | -------- | -------------- | ---- |
+| oldPasswd | string | 是       | 原密码         |      |
+| newPasswd | string | 是       | 新密码         |      |
+| vfcode    | string | 是       | 手机短信验证码 |      |
+
+### 返回值
+
+> data无意义
+
+#### 样例
+
+```json
+{
+	"code":0,
+	"data":null,
+	"message":"成功",
+	"success":true
+}
+```
+
+
+
+# 其他辅助接口
+
+## 6_1_未登录发送验证码
+
+### 接口路径&请求方式
+
+/authcode/send POST
+
+### 参数
+
+| 字段         | 类型   | 是否必填 | 说明                   | 跳转                                   |
+| ------------ | ------ | -------- | ---------------------- | -------------------------------------- |
+| account      | string | 是       | 接收验证码的账号       | [account说明](#6_1_params_account说明) |
+| accountKind  | int    | 是       | 接收验证码的账号的种类 | [AccountKind][AccountKind]             |
+| businessCode | int    | 是       | 业务编号               | [BusinessCode][BusinessCode]           |
+
+#### 6_1_params_account说明
+
+>若账号种类是手机号，请传入完整号码，例如 8618888888888
+
+### 返回值
+
+> data无意义
+
+#### 样例
+
+```json
+{
+	"code":0,
+	"data":null,
+	"message":"成功",
+	"success":true
+}
+```
+
+## 6_2_找回密码
+
+### 接口路径&请求方式
+
+/passwd/retrieval POST
+
+### 参数
+
+| 字段        | 类型   | 是否必填 | 说明                   | 跳转                                   |
+| ----------- | ------ | -------- | ---------------------- | -------------------------------------- |
+| account     | string | 是       | 接收验证码的账号       | [account说明](#6_2_params_account说明) |
+| accountKind | int    | 是       | 接收验证码的账号的种类 | [AccountKind][AccountKind]             |
+| passwd      | string | 是       | 新密码(MD5加密后)      |                                        |
+| vfcode      | string | 是       | 手机短信验证码         |                                        |
+
+#### 6_2_params_account说明
+
+> 若账号种类是手机号，请传入完整号码，例如 8618888888888
+
+### 返回值
+
+> data无意义
+
+#### 样例
+
+```json
+{
+	"code":0,
+	"data":null,
+	"message":"成功",
+	"success":true
+}
+```
+
+## 6_3_登录
+
+### 接口路径&请求方式
+
+/login POST
+
+### 参数
+
+| 字段        | 类型   | 是否必填 | 说明                   | 跳转                                   |
+| ----------- | ------ | -------- | ---------------------- | -------------------------------------- |
+| account     | string | 是       | 接收验证码的账号       | [account说明](#6_3_params_account说明) |
+| accountKind | int    | 是       | 接收验证码的账号的种类 | [AccountKind][AccountKind]             |
+| passwd      | string | 是       | 新密码(MD5加密后)      |                                        |
+| vfcode      | string | 是       | 手机短信验证码         |                                        |
+
+#### 6_3_params_account说明
+
+> 若账号种类是手机号，请传入完整号码，例如 8618888888888
+
+### 返回值
+
+> data类型[MerchantVo][MerchantVo].本次登录的商家当前信息
+
+#### 样例
+
+```json
+{
+	"code":0,
+	"data":{
+		"account":"18888888888@dcpay.vip",
+		"auth":{
+			"phone":{
+				"explain":null,
+				"state":1,
+				"value":{
+					"area":"86",
+					"tel":"18888888888"
+				}
+			}
+		},
+		"id":100,
+		"uid":"809889"
+	},
+	"message":"成功",
+	"success":true
+}
+```
+
+
+
+
+
+
+
 [PaginationParam]:vo.md#PaginationParam
 [GIIdentity]:vo.md#GIIdentity
 [Property]:vo.md#Property
@@ -1063,3 +1322,7 @@
 [DealType]:vo.md#DealType
 [DealState]:vo.md#DealState
 [PaidState]:vo.md#PaidState
+
+[BusinessCode]:vo.md#BusinessCode
+[AccountKind]: vo.md#AccountKind
+

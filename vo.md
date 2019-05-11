@@ -84,6 +84,18 @@
 | pagination | object   | 分页页码信息       | [Pagination][Pagination] |
 | content    | array<T> | 分页具体内容的数组 |                          |
 
+## Situation
+
+[Situation]:#Situation
+
+> 状态描述类,泛型类型是value的类型
+
+| 字段    | 类型   | 说明                              | 跳转 |
+| ------- | ------ | --------------------------------- | ---- |
+| state   | int    | 状态码,见具体业务说明             |      |
+| value   | T      | 当前状态下附件的值,见具体业务说明 |      |
+| explain | String | 状态的说明信息                    |      |
+
 # 资产业务VO
 
 ## AssetVo
@@ -213,7 +225,38 @@
 
 > 商家信息类，继承自[GIIdentity][GIIdentity]<Long>
 
+| 字段 | 类型   | 说明           | 跳转                             |
+| ---- | ------ | -------------- | -------------------------------- |
+| uid  | String | 展示的ID       |                                  |
+| auth | object | 商家的验证信息 | [MerchantAuthVo][MerchantAuthVo] |
 
+## MerchantAuthVo
+
+[MerchantAuthVo]:#MerchantAuthVo
+
+> 商户认证Vo
+
+| 字段  | 类型   | 说明                                                  | 跳转                                               |
+| ----- | ------ | ----------------------------------------------------- | -------------------------------------------------- |
+| phone | object | [MerchantAuthVo_phone说明](#MerchantAuthVo_phone说明) | [Situation][Situation]<[PhoneNumber][PhoneNumber]> |
+
+## MerchantAuthVo_phone说明
+
+> 一个[Situation][Situation]<PhoneNumber>结构，
+> phone.state可选值见[SwitchState][SwitchState]
+> phone.value认证后的手机号码,见[PhoneNumber][PhoneNumber]
+> phone.explain暂无意义
+
+## PhoneNumber
+
+[PhoneNumber]:#PhoneNumber
+
+> 电话号码类型
+
+| 字段 | 类型   | 说明                 | 跳转 |
+| ---- | ------ | -------------------- | ---- |
+| area | string | 国码                 |      |
+| tel  | string | 电话号码（不含国码） |      |
 
 # 订单业务VO
 
@@ -307,4 +350,26 @@
 [PaidState]:#PaidState
 
 > 订单的支付状态 1-未支付 2-足额已支付 3-不足额已支付 4-超额已支付
+
+# 业务辅助枚举
+
+## BusinessCode
+
+[BusinessCode]:#BusinessCode
+
+> 业务code定义:
+> 2001 - 添加支付方式发送手机验证码
+> 3001 - 商家提现发送手机验证码
+> 5001 - 商家修改密码发送手机验证码
+> 6001 - 找回密码发送验证码
+> 6002 - 登录发送验证码
+
+## AccountKind
+
+[AccountKind]:#AccountKind
+
+> 账号种类:
+> 1 - 手机号
+
+
 
