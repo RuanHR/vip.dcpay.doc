@@ -1,3 +1,5 @@
+[TOC]
+
 # 基础Param
 
 ## PaginationParam
@@ -172,6 +174,7 @@
 [PaymentWay]: #PaymentWay
 
 > 支付信息方式，继承自 [Property][Property]<String>
+>
 > code可用值见[PayWay][PayWay]
 
 ## QrCode
@@ -242,10 +245,13 @@
 
 ## MerchantAuthVo_phone说明
 
-> 一个[Situation][Situation]<PhoneNumber>结构，
-> phone.state可选值见[SwitchState][SwitchState]
-> phone.value认证后的手机号码,见[PhoneNumber][PhoneNumber]
-> phone.explain暂无意义
+> 一个[Situation][Situation]<PhoneNumber>结构:
+>
+> > phone.state可选值见[SwitchState][SwitchState]
+>
+> > phone.value认证后的手机号码,见[PhoneNumber][PhoneNumber]
+>
+> > phone.explain暂无意义
 
 ## PhoneNumber
 
@@ -358,11 +364,16 @@
 [BusinessCode]:#BusinessCode
 
 > 业务code定义:
-> 2001 - 添加支付方式发送手机验证码
-> 3001 - 商家提现发送手机验证码
-> 5001 - 商家修改密码发送手机验证码
-> 6001 - 找回密码发送验证码
-> 6002 - 登录发送验证码
+>
+> > 2001 - 添加支付方式发送手机验证码
+>
+> > 3001 - 商家提现发送手机验证码
+>
+> > 5001 - 商家修改密码发送手机验证码
+>
+> > 6001 - 找回密码发送验证码
+>
+> > 6002 - 登录发送验证码
 
 ## AccountKind
 
