@@ -380,7 +380,8 @@
 [AccountKind]:#AccountKind
 
 > 账号种类:
-> 1 - 手机号
+>
+> > 1 - 手机号
 
 
 

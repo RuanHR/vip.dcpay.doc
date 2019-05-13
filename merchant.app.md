@@ -147,6 +147,7 @@
 | v.2.0.1 | D    | 2019.05.10 | 修改。3_5接口路径                                            |
 | v.2.0.2 | D    | 2019.05.11 | 1.OrderVo删除owner字段；2.PaymentVo增加remark字段；3.修改GrabSwitch类结构；4.修改接口【4_2】入参；5.增加接口【4_8】 |
 | v.2.0.3 | D    | 2019.05.12 | 增加商家和业务辅助相关接口                                   |
+| v.2.0.4 | D    | 2019.05.13 | 2_2入参增加二维码图片字段                                    |
 
 
 
@@ -294,10 +295,10 @@
 | way       | string | 是       | 支付方式 |[PayWay][PayWay]|
 | ownerName | string | 是       | 拥有者姓名 ||
 | account   | string | 是 | 支付信息账号 ||
-| remark | string | 否 | 备注\留言 ||
+| file | byte[] | 否 | 二维码图片字节流 ||
 | belong    | string | 否       | 支付信息主归属结构 ||
 | subBelong | string | 否       | 支付信息从归属结构 ||
-| remark | string | 否 | 备注信息 ||
+| remark | string | 否 | 备注\留言 ||
 | vfcode | string | 是 | 手机短信验证码 ||
 
 ### 返回值
