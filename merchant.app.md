@@ -148,6 +148,7 @@
 | v.2.0.2 | D    | 2019.05.11 | 1.OrderVo删除owner字段；2.PaymentVo增加remark字段；3.修改GrabSwitch类结构；4.修改接口【4_2】入参；5.增加接口【4_8】 |
 | v.2.0.3 | D    | 2019.05.12 | 增加商家和业务辅助相关接口                                   |
 | v.2.0.4 | D    | 2019.05.13 | 2_2入参增加二维码图片字段                                    |
+| v.2.0.5 | D    | 2019.05.13 | 修改MerchantVo结构                                           |
 
 
 
@@ -1095,26 +1096,30 @@
 
 ```json
 {
-	"code":0,
-	"data":{
-		"account":"18888888888@dcpay.vip",
-		"auth":{
-			"phone":{
-				"explain":null,
-				"state":1,
-				"value":{
-					"area":"86",
-					"tel":"18888888888"
-				}
+	"account":"18888888888",
+	"auth":{
+		"deal":{
+			"explain":"未申请激活状态",
+			"state":1,
+			"value":{
+				"unit":{
+					"code":"CNY",
+					"precision":2
+				},
+				"value":0
 			}
 		},
-		"id":100,
-		"uid":"809889"
+		"phone":{
+			"state":1,
+			"value":{
+				"area":"86",
+				"tel":"18888888888"
+			}
+		}
 	},
-	"message":"成功",
-	"success":true
+	"id":1000,
+	"uid":"2900909"
 }
-
 ```
 
 ## 5_2_商家发送验证码
@@ -1285,24 +1290,30 @@ Connection: keep-alive
 
 ```json
 {
-	"code":0,
-	"data":{
-		"account":"18888888888@dcpay.vip",
-		"auth":{
-			"phone":{
-				"explain":null,
-				"state":1,
-				"value":{
-					"area":"86",
-					"tel":"18888888888"
-				}
+	"account":"18888888888",
+	"auth":{
+		"deal":{
+			"explain":"未申请激活状态",
+			"state":1,
+			"value":{
+				"unit":{
+					"code":"CNY",
+					"precision":2
+				},
+				"value":0
 			}
 		},
-		"id":100,
-		"uid":"809889"
+		"phone":{
+            "explain":null,
+			"state":1,
+			"value":{
+				"area":"86",
+				"tel":"18888888888"
+			}
+		}
 	},
-	"message":"成功",
-	"success":true
+	"id":1000,
+	"uid":"2900909"
 }
 ```
 

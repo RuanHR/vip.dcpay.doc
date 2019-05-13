@@ -239,12 +239,15 @@
 
 > 商户认证Vo
 
-| 字段  | 类型   | 说明                                                  | 跳转                                               |
-| ----- | ------ | ----------------------------------------------------- | -------------------------------------------------- |
-| phone | object | [MerchantAuthVo_phone说明](#MerchantAuthVo_phone说明) | [Situation][Situation]<[PhoneNumber][PhoneNumber]> |
+| 字段  | 类型   | 说明                                                   | 跳转                                                       |
+| ----- | ------ | ------------------------------------------------------ | ---------------------------------------------------------- |
+| phone | object | 商家手机认证状态信息,[详见](#MerchantAuthVo_phone说明) | [Situation][Situation]<[PhoneNumber][PhoneNumber]>         |
+| deal  | object | 商家交易状态信息,[详见](#MerchantAuthVo_deal说明)      | [Situation][Situation]<[ActivationFeeVo][ActivationFeeVo]> |
 
 ## MerchantAuthVo_phone说明
 
+> 商家手机认证状态信息
+>
 > 一个[Situation][Situation]<PhoneNumber>结构:
 >
 > > phone.state可选值见[SwitchState][SwitchState]
@@ -263,6 +266,39 @@
 | ---- | ------ | -------------------- | ---- |
 | area | string | 国码                 |      |
 | tel  | string | 电话号码（不含国码） |      |
+
+## MerchantAuthVo_deal说明
+
+> 商家交易状态信息
+>
+> 一个[Situation][Situation]<ActivationFeeVo>结构:
+>
+> > deal.state可选值见[MerchantDealState][MerchantDealState]
+>
+> > deal.value商家激活费用信息,详见[ActivationFeeVo][ActivationFeeVo]
+>
+> > deal.explain 当前状态的额外描述. 驳回时是驳回理由；禁用时是禁用理由
+
+## ActivationFeeVo
+
+[ActivationFeeVo]:#ActivationFeeVo
+
+> 商家激活费用结构
+
+| 字段  | 类型   | 说明               | 跳转                 |
+| ----- | ------ | ------------------ | -------------------- |
+| value | number | 激活费用值         |                      |
+| unit  | object | 激活费用的币种单位 | [Currency][Currency] |
+
+# 商家业务枚举
+
+## MerchantDealState
+
+[MerchantDealState]:#MerchantDealState
+
+> 商家交易状态
+>
+> > 1-未申请激活 2-申请激活后审批中 3-已激活,可交易 4-申请激活被驳回 5-被禁用,不可交易
 
 # 订单业务VO
 
