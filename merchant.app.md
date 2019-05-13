@@ -1243,7 +1243,7 @@
 }
 ```
 
-## 6_3_登录
+## 6_3_登录接口
 
 ### 接口路径&请求方式
 
@@ -1266,7 +1266,21 @@
 
 > data类型[MerchantVo][MerchantVo].本次登录的商家当前信息
 
+> 登录成功响应头中返回本次登录的身份信息：utoken - 用户唯一身份标识；ttoken-随机token,每次登录后更新。utoken,ttoken在后续操作中带入到请求头中,作为身份标识
+
 #### 样例
+
+```http
+HTTP/1.1 200 OK
+Server: Tengine
+Date: Mon, 13 May 2019 02:11:46 GMT
+Content-Type: application/json;charset=UTF-8
+utoken: E1449C64151030801DF5233ADC2D6A829C36FD15E786B7412A4EB61CECDCE421
+ttoken: 17cd20ddcb55420980774d2eddfd3c14
+X-Cache: MISS from kp4
+Transfer-Encoding: chunked
+Connection: keep-alive
+```
 
 ```json
 {
