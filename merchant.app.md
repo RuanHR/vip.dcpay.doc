@@ -1096,29 +1096,34 @@
 
 ```json
 {
-	"account":"18888888888",
-	"auth":{
-		"deal":{
-			"explain":"未申请激活状态",
-			"state":1,
-			"value":{
-				"unit":{
-					"code":"CNY",
-					"precision":2
-				},
-				"value":0
+	"code":0,
+	"data":{
+		"account":"18888888888",
+		"auth":{
+			"deal":{
+				"explain":"未申请激活状态",
+				"state":1,
+				"value":{
+					"unit":{
+						"code":"CNY",
+						"precision":2
+					},
+					"value":0
+				}
+			},
+			"phone":{
+				"state":1,
+				"value":{
+					"area":"86",
+					"tel":"18888888888"
+				}
 			}
 		},
-		"phone":{
-			"state":1,
-			"value":{
-				"area":"86",
-				"tel":"18888888888"
-			}
-		}
+		"id":1000,
+		"uid":"2900909"
 	},
-	"id":1000,
-	"uid":"2900909"
+	"message":"成功",
+	"success":true
 }
 ```
 
@@ -1290,30 +1295,34 @@ Connection: keep-alive
 
 ```json
 {
-	"account":"18888888888",
-	"auth":{
-		"deal":{
-			"explain":"未申请激活状态",
-			"state":1,
-			"value":{
-				"unit":{
-					"code":"CNY",
-					"precision":2
-				},
-				"value":0
+	"code":0,
+	"data":{
+		"account":"18888888888",
+		"auth":{
+			"deal":{
+				"explain":"未申请激活状态",
+				"state":1,
+				"value":{
+					"unit":{
+						"code":"CNY",
+						"precision":2
+					},
+					"value":0
+				}
+			},
+			"phone":{
+				"state":1,
+				"value":{
+					"area":"86",
+					"tel":"18888888888"
+				}
 			}
 		},
-		"phone":{
-            "explain":null,
-			"state":1,
-			"value":{
-				"area":"86",
-				"tel":"18888888888"
-			}
-		}
+		"id":1000,
+		"uid":"2900909"
 	},
-	"id":1000,
-	"uid":"2900909"
+	"message":"成功",
+	"success":true
 }
 ```
 
