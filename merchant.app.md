@@ -149,6 +149,7 @@
 | v.2.0.3 | D    | 2019.05.12 | 增加商家和业务辅助相关接口                                   |
 | v.2.0.4 | D    | 2019.05.13 | 2_2入参增加二维码图片字段                                    |
 | v.2.0.5 | D    | 2019.05.13 | 修改MerchantVo结构                                           |
+| v.2.0.6 | D    | 2019.05.15 | 增加6_4注册接口;修改MerchantVo结构,增加邀请码                |
 
 
 
@@ -1096,34 +1097,30 @@
 
 ```json
 {
-	"code":0,
-	"data":{
-		"account":"18888888888",
-		"auth":{
-			"deal":{
-				"explain":"未申请激活状态",
-				"state":1,
-				"value":{
-					"unit":{
-						"code":"CNY",
-						"precision":2
-					},
-					"value":0
-				}
-			},
-			"phone":{
-				"state":1,
-				"value":{
-					"area":"86",
-					"tel":"18888888888"
-				}
+	"account":"18888888888",
+	"auth":{
+		"deal":{
+			"explain":"未申请激活状态",
+			"state":1,
+			"value":{
+				"unit":{
+					"code":"CNY",
+					"precision":2
+				},
+				"value":0
 			}
 		},
-		"id":1000,
-		"uid":"2900909"
+		"phone":{
+			"state":1,
+			"value":{
+				"area":"86",
+				"tel":"18888888888"
+			}
+		}
 	},
-	"message":"成功",
-	"success":true
+	"id":1000,
+	"invitationCode":"stfc4",
+	"uid":"2900909"
 }
 ```
 
@@ -1295,34 +1292,30 @@ Connection: keep-alive
 
 ```json
 {
-	"code":0,
-	"data":{
-		"account":"18888888888",
-		"auth":{
-			"deal":{
-				"explain":"未申请激活状态",
-				"state":1,
-				"value":{
-					"unit":{
-						"code":"CNY",
-						"precision":2
-					},
-					"value":0
-				}
-			},
-			"phone":{
-				"state":1,
-				"value":{
-					"area":"86",
-					"tel":"18888888888"
-				}
+	"account":"18888888888",
+	"auth":{
+		"deal":{
+			"explain":"未申请激活状态",
+			"state":1,
+			"value":{
+				"unit":{
+					"code":"CNY",
+					"precision":2
+				},
+				"value":0
 			}
 		},
-		"id":1000,
-		"uid":"2900909"
+		"phone":{
+			"state":1,
+			"value":{
+				"area":"86",
+				"tel":"18888888888"
+			}
+		}
 	},
-	"message":"成功",
-	"success":true
+	"id":1000,
+	"invitationCode":"stfc4",
+	"uid":"2900909"
 }
 ```
 
