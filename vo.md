@@ -228,10 +228,11 @@
 
 > 商家信息类，继承自[GIIdentity][GIIdentity]<Long>
 
-| 字段 | 类型   | 说明           | 跳转                             |
-| ---- | ------ | -------------- | -------------------------------- |
-| uid  | String | 展示的ID       |                                  |
-| auth | object | 商家的验证信息 | [MerchantAuthVo][MerchantAuthVo] |
+| 字段           | 类型   | 说明           | 跳转                             |
+| -------------- | ------ | -------------- | -------------------------------- |
+| uid            | String | 展示的ID       |                                  |
+| auth           | object | 商家的验证信息 | [MerchantAuthVo][MerchantAuthVo] |
+| invitationCode | String | 商家的邀请码   |                                  |
 
 ## MerchantAuthVo
 
