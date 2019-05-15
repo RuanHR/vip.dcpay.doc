@@ -1266,7 +1266,7 @@
 | ----------- | ------ | -------- | ---------------------- | -------------------------------------- |
 | account     | string | 是       | 接收验证码的账号       | [account说明](#6_3_params_account说明) |
 | accountKind | int    | 是       | 接收验证码的账号的种类 | [AccountKind][AccountKind]             |
-| passwd      | string | 是       | 新密码(MD5加密后)      |                                        |
+| passwd      | string | 是       | 密码(MD5加密后)        |                                        |
 | vfcode      | string | 是       | 手机短信验证码         |                                        |
 
 #### 6_3_params_account说明
@@ -1327,6 +1327,39 @@ Connection: keep-alive
 ```
 
 
+
+##  6_4_注册接口
+
+### 接口路径&请求方式
+
+/signup POST
+
+### 参数
+
+| 字段           | 类型   | 是否必填 | 说明                   | 跳转                                   |
+| -------------- | ------ | -------- | ---------------------- | -------------------------------------- |
+| account        | string | 是       | 接收验证码的账号       | [account说明](#6_4_params_account说明) |
+| accountKind    | int    | 是       | 接收验证码的账号的种类 | [AccountKind][AccountKind]             |
+| invitationCode | string | 是       | 上级商家邀请码         |                                        |
+| passwd         | string | 是       | 密码(MD5加密后)        |                                        |
+| vfcode         | string | 是       | 手机短信验证码         |                                        |
+
+#### 6_4_params_account说明
+
+> 若账号种类是手机号，请传入完整号码,英标逗号分割，例如:"86,18888888888"
+
+### 返回值
+
+> data无意义
+
+```json
+{
+	"code":0,
+	"data":null,
+	"message":"成功",
+	"success":true
+}
+```
 
 
 
