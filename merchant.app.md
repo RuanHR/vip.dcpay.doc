@@ -150,6 +150,7 @@
 | v.2.0.4 | D    | 2019.05.13 | 2_2入参增加二维码图片字段                                    |
 | v.2.0.5 | D    | 2019.05.13 | 修改MerchantVo结构                                           |
 | v.2.0.6 | D    | 2019.05.15 | 增加6_4注册接口;修改MerchantVo结构,增加邀请码                |
+| v.2.0.7 | D    | 2019.05.16 | 修改 [4_1][4_1]返回结构，[4_2][4_2]入参、返参结构            |
 
 
 
@@ -738,7 +739,10 @@
 # 抢单订单接口
 
 ## 4_1_获取开关状态
+[4_1]:#4_1_获取开关状态
+
 ### 接口路径&请求方式
+
 /merchant/grab/switch GET
 ### 参数
 无参数
@@ -754,9 +758,7 @@
             "merchant":1
         },
 		"main":1,
-        "withdraw":{
-            "merchant":1
-        }
+        "withdraw":1
 	},
     "message":"成功",
 	"success":true
@@ -764,7 +766,10 @@
 
 ```
 ## 4_2_修改开关状态
+[4_2]:#4_2_修改开关状态
+
 ### 接口路径&请求方式
+
 /merchant/grab/switch/turn POST
 
 > 仅修改非null的入参配置
@@ -773,9 +778,9 @@
 |字段 | 类型 | 是否必传 | 说明 | 跳转 |
 |----|----|----|----|----|
 |main| int|否|主开关状态|[SwitchState][SwitchState]|
-|playerDeposit| int |否|玩家充值开关状态|[SwitchState][SwitchState]|
-|playerWithdraw| int |否|玩家提现开关状态|[SwitchState][SwitchState]|
-|merchantWithdraw| int |否|商家提现开关状态|[SwitchState][SwitchState]|
+|playerDeposit| int |否|接收玩家充值订单开关状态|[SwitchState][SwitchState]|
+|merchantDeposit| int |否|接收商家充值订单开关状态|[SwitchState][SwitchState]|
+|withdraw| int |否|接收提现订单开关状态|[SwitchState][SwitchState]|
 ### 返回值
 > data类型[GrabSwitch][GrabSwitch]，修改后的开关状态
 #### 样例
@@ -788,9 +793,7 @@
             "merchant":1
         },
 		"main":1,
-        "withdraw":{
-            "merchant":1
-        }
+        "withdraw":1
 	},
     "message":"成功",
 	"success":true

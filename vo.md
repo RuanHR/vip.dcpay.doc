@@ -125,11 +125,11 @@
 
 > 抢单开关配置
 
-| 字段     | 类型 | 说明     | 跳转                                       |
-| -------- | ---- | -------- | ------------------------------------------ |
-| main     | int  | 主开关   | [SwitchState][SwitchState]                 |
-| deposit  | int  | 充值开关 | [GrabSwitchOrderType][GrabSwitchOrderType] |
-| withdraw | int  | 提现开关 | [GrabSwitchOrderType][GrabSwitchOrderType] |
+| 字段     | 类型   | 说明     | 跳转                                       |
+| -------- | ------ | -------- | ------------------------------------------ |
+| main     | int    | 主开关   | [SwitchState][SwitchState]                 |
+| deposit  | object | 充值开关 | [GrabSwitchOrderType][GrabSwitchOrderType] |
+| withdraw | int    | 提现开关 | [SwitchState][SwitchState]                 |
 
 ## GrabSwitchOrderType
 
