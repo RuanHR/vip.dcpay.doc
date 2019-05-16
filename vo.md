@@ -233,6 +233,7 @@
 | uid            | String | 展示的ID       |                                  |
 | auth           | object | 商家的验证信息 | [MerchantAuthVo][MerchantAuthVo] |
 | invitationCode | String | 商家的邀请码   |                                  |
+| type           | int    | 商家的类型     | [MerchantTpye][MerchantTpye]     |
 
 ## MerchantAuthVo
 
@@ -300,6 +301,14 @@
 > 商家交易状态
 >
 > > 1-未申请激活 2-申请激活后审批中 3-已激活,可交易 4-申请激活被驳回 5-被禁用,不可交易
+
+## MerchantTpye
+
+[MerchantTpye]:#MerchantTpye
+
+> 商家的类型
+>
+> > 1-普通商家 2-批发商
 
 # 订单业务VO
 
