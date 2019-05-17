@@ -206,7 +206,7 @@
 
 [PayWay]:#PayWay
 
-> 支付方式枚举，目前支持：bankcard-银行卡 | AliPay-支付宝 | WeChatPay-微信 
+> 支付方式枚举，目前支持：Bankcard-银行卡 | AliPay-支付宝 | WechatPay-微信 
 
 ## PaymentGoal
 
@@ -231,7 +231,7 @@
 | 字段           | 类型   | 说明           | 跳转                             |
 | -------------- | ------ | -------------- | -------------------------------- |
 | uid            | String | 展示的ID       |                                  |
-| auth           | object | 商家的验证信息 | [MerchantAuthVo][MerchantAuthVo] |
+| auth           | object | 商家的认证信息 | [MerchantAuthVo][MerchantAuthVo] |
 | invitationCode | String | 商家的邀请码   |                                  |
 | type           | int    | 商家的类型     | [MerchantTpye][MerchantTpye]     |
 
@@ -275,7 +275,7 @@
 >
 > 一个[Situation][Situation]<ActivationFeeVo>结构:
 >
-> > deal.state可选值见[MerchantDealState][MerchantDealState]
+> > deal.state可选值见[MerchantActivateState][MerchantActivateState]
 >
 > > deal.value商家激活费用信息,详见[ActivationFeeVo][ActivationFeeVo]
 >
@@ -294,11 +294,11 @@
 
 # 商家业务枚举
 
-## MerchantDealState
+## MerchantActivateState
 
-[MerchantDealState]:#MerchantDealState
+[MerchantActivateState]:#MerchantActivateState
 
-> 商家交易状态
+> 商家激活状态
 >
 > > 1-未申请激活 2-申请激活后审批中 3-已激活,可交易 4-申请激活被驳回 5-被禁用,不可交易
 
