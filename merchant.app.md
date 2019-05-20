@@ -1184,6 +1184,62 @@
 }
 ```
 
+## 5_4_查询激活费用配置
+
+[5_4]:#5_4_查询激活费用配置
+
+### 接口路径&请求方式
+
+/merchant/activation/fee GET
+
+### 参数
+
+无
+
+### 返回值
+
+> data 类型 [ActivationFeeVo][ActivationFeeVo]
+
+#### 样例
+
+```json
+{
+	"code":0,
+	"data":{
+		"unit":{
+			"code":"CNY",
+			"precision":2
+		},
+		"value":300
+	},
+	"message":"获取成功",
+	"success":true
+}
+```
+
+## 5_5_申请激活账户
+
+[5_5]:#5_5_申请激活账户
+
+### 接口路径&请求方式
+
+/merchant/activation/apply POST
+
+### 参数
+
+| 字段     | 类型   | 是否必填 | 说明               |
+| -------- | ------ | -------- | ------------------ |
+| feeValue | number | 是       | 激活费用的值       |
+| feeUnit  | string | 是       | 激活费用的币种code |
+
+### 返回值
+
+> data类型[MerchantVo][MerchantVo]. 激活成功后新的商户信息
+
+#### 样例
+
+> 见[5_1_样例](#样例-19)
+
 
 
 # 其他辅助接口
@@ -1393,3 +1449,4 @@ Connection: keep-alive
 [BusinessCode]:vo.md#BusinessCode
 [AccountKind]: vo.md#AccountKind
 
+[ActivationFeeVo]:vo.md#ActivationFeeVo
