@@ -288,11 +288,11 @@
 	"code": "1000",
 	"msg": "成功",
 	"obj": {
-		"currency": "USD",
-		"unfree": 0E-10,
-		"ownerId": 31732,
-        "ownerType": 1,
-		"free": 0E-10,
+		"coinCode": "DC",
+		"coldMoney": 0E-10,
+		"accountId": 31732,
+        "accountType": 1,
+		"hotMoney": 0E-10,
 		"id": 174134
 	},
 	"success": true
@@ -330,11 +330,11 @@
 	"code": "1000",
 	"msg": "成功",
 	"obj": {
-		"currency": "BCB",
-        "ownerType": 1,
-		"unfree": 0E-10,
-		"ownerId": 31732,
-		"free": 0E-10,
+		"coinCode": "BCB",
+        "accountType": 1,
+		"codeMoney": 0E-10,
+		"accountId": 31732,
+		"hotMoney": 0E-10,
 		"id": 174134
 	},
 	"success": true
@@ -345,11 +345,11 @@
 
 ## 9.1基本描述
 
-| 请求方式 | dubbo/rpc                                           |
-| -------- | --------------------------------------------------- |
-| 请求地址 | createAsset                                         |
-| 功能说明 | 根据币账户Id以及账户类型生成账户                    |
-| 特别说明 | 调用此接口生成的币账户必须再调用一次接口10 激活账户 |
+| 请求方式 | dubbo/rpc                                                    |
+| -------- | ------------------------------------------------------------ |
+| 请求地址 | createAsset                                                  |
+| 功能说明 | 根据币账户Id以及账户类型生成账户                             |
+| 特别说明 | 调用此接口生成的币账户必须再调用一次接口[激活账户](#10. 更新币账户状态) |
 
 ## 9.2请求参数
 
@@ -378,14 +378,14 @@
 }
 ```
 
-# 10. 更新币账户状态为激活
+# 10. 更新币账户状态
 
 ## 10.1基本描述
 
 | 请求方式 | dubbo/rpc                                |
 | -------- | ---------------------------------------- |
-| 请求地址 | updateState                              |
-| 功能说明 | 根据币账户Id已经账户类型币种类型生产账户 |
+| 请求地址 | updateStatus                             |
+| 功能说明 | 根据币账户Id已经账户类型币种类型生成账户 |
 | 特别说明 | 只需要在调用生成币账户后调用一次即可     |
 
 ## 10.2请求参数
@@ -419,21 +419,21 @@
 
 # CoinAccount
 
-| 字段      | 类型       | 说明                     |
-| --------- | ---------- | ------------------------ |
-| id        | Long       | 币账户Id                 |
-| ownerId   | Long       | 商户Id                   |
-| ownerType | int        | 所有者类型 1 用户 2 财务 |
-| free      | BigDecimal | 热钱                     |
-| unfree    | BigDecimal | 冷钱                     |
-| currency  | String     | 币种code                 |
+| 字段        | 类型       | 说明                            |
+| ----------- | ---------- | ------------------------------- |
+| id          | Long       | 币账户Id                        |
+| accountId   | Long       | 商户Id\|平台ID                  |
+| accountType | int        | 平台账户类型（1：平台；2：商家) |
+| hotMoney    | BigDecimal | 热钱                            |
+| coldMoney   | BigDecimal | 冷钱                            |
+| coinCode    | String     | 币种code                        |
 
 # BusinessTypeEnum
 
-| businessType | 说明 |
-| ------------ | ---- |
-| 1            | 支付 |
-| 2            | 提现 |
-| 3            | 充币 |
-| 4            | 提币 |
+| businessType | 说明     |
+| ------------ | -------- |
+| 1            | 玩家充值 |
+| 2            | 平台提现 |
+| 3            | 商家充值 |
+| 4            | 商家提现 |
 
