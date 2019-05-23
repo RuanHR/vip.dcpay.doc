@@ -323,8 +323,8 @@
 | property   | object | 订单的基础属性                             | [OrderProperty][OrderProperty]     |
 | state      | object | 订单的状态                                 | [OrderState][OrderState]           |
 | amount     | object | 订单的金额信息                             | [OrderAmount][OrderAmount]         |
-| payInfo    | object | 订单的收款信息                             | [PaymentVo][PaymentVo]             |
-| recvInfo   | object | 订单中使用的支付信息                       | [PaymentVo][PaymentVo]             |
+| payInfo    | object | 订单中使用的支付信息                             | [PaymentVo][PaymentVo]             |
+| recvInfo   | object | 订单的收款信息                       | [PaymentVo][PaymentVo]             |
 | pttl       | long   | 订单自动关闭的超时时间,毫秒,null则忽略不计 |                                    |
 | time       | object | 时间对                                     | [TimePair][TimePair]               |
 | thirdParty | object | 第三方的订单信息                           | [ThirdPartyOrder][ThirdPartyOrder] |
