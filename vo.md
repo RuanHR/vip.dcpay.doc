@@ -98,6 +98,19 @@
 | value   | T      | 当前状态下附件的值,见具体业务说明 |      |
 | explain | String | 状态的说明信息                    |      |
 
+## Range<T>
+
+[Range]:#Range
+
+> 范围结构体，泛型类型是max,min的类型
+
+| 字段 | 类型 | 说明   | 跳转 |
+| ---- | ---- | ------ | ---- |
+| max  | T    | 最大值 |      |
+| min  | T    | 最小值 |      |
+
+
+
 # 资产业务VO
 
 ## AssetVo
@@ -402,6 +415,52 @@
 [PaidState]:#PaidState
 
 > 订单的支付状态 1-未支付 2-足额已支付 3-不足额已支付 4-超额已支付
+
+# 业务辅助VO
+
+## DealConfig
+
+[DealConfig]:#DealConfig
+
+> 交易配置结构
+
+| 字段      | 类型   | 说明           | 跳转                                       |
+| --------- | ------ | -------------- | ------------------------------------------ |
+| condition | object | 交易配置的条件 | [DealConfigCondition][DealConfigCondition] |
+| value     | object | 交易配置的值   | [DealConfigValue][DealConfigValue]         |
+
+## DealConfigCondition
+
+[DealConfigCondition]:#DealConfigCondition
+
+> 交易配置的条件结构
+
+| 字段     | 类型   | 说明                 | 跳转                 |
+| -------- | ------ | -------------------- | -------------------- |
+| payWay   | String | 交易要使用的支付方式 | [PayWay][PayWay]     |
+| dealType | int    | 交易类型             | [DealType][DealType] |
+
+## DealConfigValue
+
+[DealConfigValue]:#DealConfigValue
+
+> 交易配置的值结构
+
+| 字段  | 类型   | 说明         | 跳转                   |
+| ----- | ------ | ------------ | ---------------------- |
+| fee   | object | 手续费配置   | [FeeConfig][FeeConfig] |
+| range | object | 交易金额范围 | [Range][Range]<Number> |
+
+## FeeConfig
+
+[FeeConfig]:#FeeConfig
+
+> 交易手续费配置结构
+
+| 字段 | 类型   | 说明           | 跳转 |
+| ---- | ------ | -------------- | ---- |
+| rate | Number | 手续费率       |      |
+| min  | Number | 单笔最小手续费 |      |
 
 # 业务辅助枚举
 

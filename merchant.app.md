@@ -748,6 +748,7 @@
 |---- |----| ----|----|----|
 |id|String|是 |订单ID||
 ### 返回值
+
 > data无意义
 #### 样例
 ```json
@@ -758,6 +759,52 @@
 	"success":true
 }
 ```
+
+## 3_7_订单交易配置
+
+### 接口路径&请求方式
+
+/merchant/order/config
+
+### 参数
+
+无
+
+### 返回值
+
+> data类型 List<[DealConfig][DealConfig]>
+
+#### 样例
+
+``` json
+{
+  "success": true,
+  "code": 0,
+  "message": "获取成功",
+  "data": [
+    {
+      "condition": {
+        "payWay": "Bankcard",
+        "dealType": 1
+      },
+      "value": {
+        "fee": {
+          "rate": 0.03,
+          "min": 100
+        },
+        "range": {
+          "min": 3000,
+          "max": 10000
+        }
+      }
+    }
+  ]
+}
+```
+
+
+
+
 
 # 抢单订单接口
 
@@ -1417,8 +1464,6 @@ Connection: keep-alive
 
 
 
-
-
 [PaginationParam]:vo.md#PaginationParam
 [GIIdentity]:vo.md#GIIdentity
 [Property]:vo.md#Property
@@ -1450,3 +1495,5 @@ Connection: keep-alive
 [AccountKind]: vo.md#AccountKind
 
 [ActivationFeeVo]:vo.md#ActivationFeeVo
+[DealConfig]:vo.md#DealConfig
+
