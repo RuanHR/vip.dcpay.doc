@@ -330,7 +330,17 @@ Table of Contents
     * [参数](#参数-28)
       * [6_4_params_account说明](#6_4_params_account说明)
     * [返回值](#返回值-27)
-
+* [查询代理接口](#查询代理接口)
+  * [7_1_查询我的直属下级列表](#7_1_查询我的直属下级列表)
+    * [接口路径&请求方式](#接口路径请求方式-1)
+    * [参数](#参数)
+    * [返回值](#返回值)
+      * [样例](#样例)
+  * [7_2_搜索下级结果](#7_2_搜索下级结果)
+    * [接口路径&请求方式&请求ContentType](#接口路径请求方式请求contenttype)
+    * [参数](#参数)
+    * [返回值](#返回值)
+      * [样例](#样例)
 
 # 更新记录
 
@@ -341,6 +351,7 @@ Table of Contents
 | v.2.0.11 | D    | 2019.06.12 | 增加接口 3_7_订单交易配置                                    |
 | v.2.0.12 | D    | 2019.06.12 | 增加接口 4_9_商家查看领取到的订单详情                        |
 | v.2.0.13 | D    | 2019.06.13 | 增加接口3_8_提现订单,确认收款                                |
+| v.2.0.14 | Z    | 2019.06.13 | 增加接口7.1\|7.2 查询直属下级\|搜索下级结果                  |
 
 
 
@@ -1735,6 +1746,82 @@ Connection: keep-alive
 }
 ```
 
+# 查询代理接口
+
+## 7_1_查询我的直属下级列表
+
+### 接口路径&请求方式
+
+/merchant/agent/list GET
+
+### 返回参数
+
+| 字段               | 类型    | 说明     |
+| ------------------ | ------- | -------- |
+| merchantId         | Long    | 商户ID   |
+| account            | String  | 账号     |
+| teamCount          | Integer | 团队人数 |
+| directlyUnderCount | Integer | 直属人数 |
+| parentId           | Long    | 父ID     |
+
+
+
+#### 样例
+
+``` json
+{
+  "success": true,
+  "code": 0,
+  "message": "successful",
+  "data": [
+    {
+      "merchantId": 2,
+      "account": "17777777777",
+      "teamCount": 0,
+      "directlyUnderCount": 0,
+      "parentId": 1
+    },
+    {
+      "merchantId": 3,
+      "account": "18888888888",
+      "teamCount": 16,
+      "directlyUnderCount": 12,
+      "parentId": 1
+    }
+  ]
+}
+
+```
+## 7_2_搜索下级结果
+
+### 接口路径&请求方式
+
+/merchant/agent/findByAccount GET
+
+### 参数
+
+| 字段        | 类型   | 是否必填 | 说明                   | 跳转                                   |
+| ----------- | ------ | -------- | ---------------------- | -------------------------------------- |
+| account     | string | 是       | 登陆的账号       | [account说明](#6_3_params_account说明) |
+### 返回参数
+
+#### 样例
+
+``` json
+{
+  "success": true,
+  "code": 0,
+  "message": "successful",
+  "data": {
+    "merchantId": null,
+    "account": "18888888888",
+    "teamCount": 16,
+    "directlyUnderCount": 12,
+    "parentId": null
+  }
+}
+
+```
 
 
 [PaginationParam]:vo.md#PaginationParam
