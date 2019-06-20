@@ -247,6 +247,7 @@
 | auth           | object | 商家的认证信息 | [MerchantAuthVo][MerchantAuthVo] |
 | invitationCode | String | 商家的邀请码   |                                  |
 | type           | int    | 商家的类型     | [MerchantTpye][MerchantTpye]     |
+| realname       | String | 商家的实名信息 |                                  |
 
 ## MerchantAuthVo
 
