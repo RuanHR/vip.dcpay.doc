@@ -171,16 +171,17 @@
 
 > 支付信息类型，继承自[GIIdentity][GIIdentity]<Long>
 
-| 字段       | 类型   | 说明             | 跳转                         |
-| ---------- | ------ | ---------------- | ---------------------------- |
-| merchantId | long   | 商户ID           |                              |
-| ownerName  | string | 持有人姓名       |                              |
-| way        | string | 支付方式code     | [PayWay][PayWay]             |
-| goal       | int    | 支付信息用途     | [PaymentGoal][PaymentGoal]   |
-| qr         | object | 二维码信息       | [QrCode][QrCode]             |
-| belong     | object | 支付信息所属机构 | [Belong][Belong]             |
-| state      | int    | 支付信息状态     | [PaymentState][PaymentState] |
-| ramark     | string | 备注信息         |                              |
+| 字段       | 类型   | 说明             | 跳转                                 |
+| ---------- | ------ | ---------------- | ------------------------------------ |
+| merchantId | long   | 商户ID           |                                      |
+| ownerName  | string | 持有人姓名       |                                      |
+| way        | string | 支付方式code     | [PayWay][PayWay]                     |
+| goal       | int    | 支付信息用途     | [PaymentGoal][PaymentGoal]           |
+| qr         | object | 二维码信息       | [QrCode][QrCode]                     |
+| belong     | object | 支付信息所属机构 | [Belong][Belong]                     |
+| state      | int    | 支付信息状态     | [PaymentState][PaymentState]         |
+| ramark     | string | 备注信息         |                                      |
+| fetchData  | object | 支付信息接单数据 | [PaymentFetchData][PaymentFetchData] |
 
 ## PaymentWay
 
@@ -212,6 +213,18 @@
 | ----- | ------ | -------- | ---- |
 | major | string | 主要机构 |      |
 | minor | string | 次要机构 |      |
+
+## PaymentFetchData
+
+[PaymentFetchData]:#PaymentFetchData
+
+> 支付信息接单数据
+
+| 字段   | 类型 | 说明                                         | 跳转 |
+| ------ | ---- | -------------------------------------------- | ---- |
+| picked | int  | 是否被选中作为收款的支付信息 1-选中 0-未选中 |      |
+
+
 
 # 支付业务枚举
 
