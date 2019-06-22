@@ -1782,8 +1782,8 @@ Connection: keep-alive
 {
   "success": true,
   "code": 0,
-  "message": "https://www.baidu.com/1",
-  "data": null
+  "message": "查询成功",
+  "data": "https://www.baidu.com/1"
 }
 ```
 
